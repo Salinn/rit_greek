@@ -69,6 +69,6 @@ class PhilanthropiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def philanthropy_params
-      params.require(:philanthropy).permit(:event_id_id, :total_raised)
+      params.require(:philanthropy).permit(:event_id, :total_raised)
     end
 end

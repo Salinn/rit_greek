@@ -1,3 +1,3 @@
 class CommunityService < ActiveRecord::Base
-  belongs_to :event_id
+  belongs_to :event
 end

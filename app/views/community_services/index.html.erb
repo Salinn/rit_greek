@@ -14,7 +14,7 @@
   <tbody>
     <% @community_services.each do |community_service| %>
       <tr>
-        <td><%= community_service.event_id %></td>
+        <td><%= community_service.event %></td>
         <td><%= community_service.total_hours %></td>
         <td><%= link_to 'Show', community_service %></td>
         <td><%= link_to 'Edit', edit_community_service_path(community_service) %></td>

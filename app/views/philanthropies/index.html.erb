@@ -14,7 +14,7 @@
   <tbody>
     <% @philanthropies.each do |philanthropy| %>
       <tr>
-        <td><%= philanthropy.event_id %></td>
+        <td><%= philanthropy.event %></td>
         <td><%= philanthropy.total_raised %></td>
         <td><%= link_to 'Show', philanthropy %></td>
         <td><%= link_to 'Edit', edit_philanthropy_path(philanthropy) %></td>

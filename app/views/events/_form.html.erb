@@ -1,33 +1,33 @@
 <%= form_for(@event) do |f| %>
-  <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+    <% if @event.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-      <% @event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @event.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :type_of_event %><br>
-    <%= f.collection_select :type_of_event, Event::EVENTTYPES, :to_s, :to_s, :class => "col-md-3" %>
-  </div>
-  <div class="field">
-    <%= f.label :start %><br>
-    <%= f.date_select :start %>
-  </div>
-  <div class="field">
-    <%= f.label :end %><br>
-    <%= f.date_select :end %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :type_of_event %><br>
+      <%= f.collection_select :type_of_event, Event::EventTypes, :to_s, :to_s, :class => "col-md-3" %>
+    </div>
+    <div class="field">
+      <%= f.label :start %><br>
+      <%= f.date_select :start %>
+    </div>
+    <div class="field">
+      <%= f.label :end %><br>
+      <%= f.date_select :end %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

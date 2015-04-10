@@ -18,7 +18,7 @@ class PhilanthropiesControllerTest < ActionController::TestCase
 
   test "should create philanthropy" do
     assert_difference('Philanthropy.count') do
-      post :create, philanthropy: { event_id_id: @philanthropy.event_id_id, total_raised: @philanthropy.total_raised }
+      post :create, philanthropy: { event_id: @philanthropy.event_id, total_raised: @philanthropy.total_raised }
     end
 
     assert_redirected_to philanthropy_path(assigns(:philanthropy))
@@ -35,7 +35,7 @@ class PhilanthropiesControllerTest < ActionController::TestCase
   end
 
   test "should update philanthropy" do
-    patch :update, id: @philanthropy, philanthropy: { event_id_id: @philanthropy.event_id_id, total_raised: @philanthropy.total_raised }
+    patch :update, id: @philanthropy, philanthropy: { event_id: @philanthropy.event_id, total_raised: @philanthropy.total_raised }
     assert_redirected_to philanthropy_path(assigns(:philanthropy))
   end
 

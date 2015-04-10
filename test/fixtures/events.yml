@@ -3,13 +3,11 @@
 one:
   name: MyString
   type_of_event: MyString
-  user_event_id: 
-  start: 2015-04-09 21:49:29
-  end: 2015-04-09 21:49:29
+  start: 2015-04-10 16:36:51
+  end: 2015-04-10 16:36:51
 
 two:
   name: MyString
   type_of_event: MyString
-  user_event_id: 
-  start: 2015-04-09 21:49:29
-  end: 2015-04-09 21:49:29
+  start: 2015-04-10 16:36:51
+  end: 2015-04-10 16:36:51
