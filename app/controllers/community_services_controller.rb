@@ -15,10 +15,12 @@ class CommunityServicesController < ApplicationController
   # GET /community_services/new
   def new
     @community_service = CommunityService.new
+    @events = Event.all.reverse
   end
 
   # GET /community_services/1/edit
   def edit
+    @events = Event.all.reverse
   end
 
   # POST /community_services
@@ -69,6 +71,6 @@ class CommunityServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def community_service_params
-      params.require(:community_service).permit(:event_id_id, :total_hours)
+      params.require(:community_service).permit(:event_id, :total_hours)
     end
 end

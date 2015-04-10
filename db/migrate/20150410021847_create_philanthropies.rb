@@ -1,8 +1,8 @@
 class CreatePhilanthropies < ActiveRecord::Migration
   def change
     create_table :philanthropies do |t|
-      t.belongs_to :event_id, index: true
-      t.float :total_raised
+      t.integer :event, index: true, null: false
+      t.float :total_raised, :decimal, precision: 2
 
       t.timestamps null: false
     end

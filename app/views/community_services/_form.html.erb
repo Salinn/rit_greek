@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :event_id_id %><br>
-    <%= f.text_field :event_id_id %>
+    <%= f.label :event_id %><br>
+    <%= f.collection_select :event_id, @events, :id, :name  %>
   </div>
   <div class="field">
     <%= f.label :total_hours %><br>

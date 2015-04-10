@@ -17,19 +17,15 @@
   </div>
   <div class="field">
     <%= f.label :type_of_event %><br>
-    <%= f.text_field :type_of_event %>
-  </div>
-  <div class="field">
-    <%= f.label :user_event_id %><br>
-    <%= f.text_field :user_event_id %>
+    <%= f.collection_select :type_of_event, Event::EVENTTYPES, :to_s, :to_s, :class => "col-md-3" %>
   </div>
   <div class="field">
     <%= f.label :start %><br>
-    <%= f.datetime_select :start %>
+    <%= f.date_select :start %>
   </div>
   <div class="field">
     <%= f.label :end %><br>
-    <%= f.datetime_select :end %>
+    <%= f.date_select :end %>
   </div>
   <div class="actions">
     <%= f.submit %>

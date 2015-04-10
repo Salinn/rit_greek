@@ -1,8 +1,8 @@
 class CreateCommunityServices < ActiveRecord::Migration
   def change
     create_table :community_services do |t|
-      t.belongs_to :event_id, index: true
-      t.float :total_hours
+      t.integer :event, index: true
+      t.float :total_hours, :decimal, precision: 2
 
       t.timestamps null: false
     end

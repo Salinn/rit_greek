@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-# Use sqlite3 as the database for Active Record
+# Use mysql as the database for Active Record
+gem 'mysql2'
 gem 'sqlite3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -30,7 +31,10 @@ gem 'cancancan', '~> 1.10'
 
 #Sets up bootstrap for rails
 gem 'bootstrap-sass', '~> 3.3.4'
-gem 'sass-rails', '>= 3.2'
+gem 'sass-rails', github: 'rails/sass-rails', branch: '4-0-stable'
+
+#JQUERY Drop Down Menuschema
+gem 'chosen-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -42,8 +46,8 @@ gem 'sass-rails', '>= 3.2'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'better_errors', '1.0.1'
+  gem 'binding_of_caller', '0.7.2'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

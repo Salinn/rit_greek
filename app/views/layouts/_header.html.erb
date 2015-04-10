@@ -1,6 +1,6 @@
 <!--Requiered to help scalling-->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top" style="height: 60px">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -12,9 +12,9 @@
         <div class="header_style">
           <a href="/">
             <!--This fetches the greek header image from the stored files-->
-            <%= image_tag "ritgreek-header.jpg" %>
+            <%= image_tag "ritgreek-header.jpg", style: 'width: auto; height: 50px;' %>
           </a>
-          <h1 class="" style="display: inline">
+          <h1 class="" style="display: inline; color: #ffffff; ">
             RIT Greeks Life!
           </h1>
         </div>
@@ -25,14 +25,13 @@
         <!--This section gives links based of users rights or permissions -->
         <% if user_signed_in? %>
             <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "About", '#' %></li>
-            <li><%= link_to "FAQ", '#' %></li>
-            <li><%= link_to "Contact", '#' %></li>
+            <li><%= link_to "Community-Service", community_services_path %></li>
+            <li><%= link_to "Philanthropy", philanthropies_path %></li>
         <% else %>
-
-                <li><%= link_to "Resources", '#' %></li>
-                <li><%= link_to "News-Letters", '#' %></li>
-            <li><%= link_to "Account", current_user  %></li>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "About", '#' %></li>
+            <li><%= link_to "FAQ", "#"  %></li>
+            <li><%= link_to "Contact-Us", "#"  %></li>
         <% end %>
         <% if user_signed_in? %>
             <li><%= link_to "Sign-out", destroy_user_session_path, :method => :delete, class: "nav-item" %></li>
