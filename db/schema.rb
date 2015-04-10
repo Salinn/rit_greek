@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150410203817) do
+ActiveRecord::Schema.define(version: 20150410204052) do
 
   create_table "community_services", force: :cascade do |t|
     t.integer  "event_id"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20150410203817) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "philanthropies", force: :cascade do |t|
+    t.integer  "event_id"
+    t.float    "total_raised"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "philanthropies", ["event_id"], name: "index_philanthropies_on_event_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "login",               default: "", null: false

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @philanthropy.event %>
+</p>
+
+<p>
+  <strong>Total raised:</strong>
+  <%= @philanthropy.total_raised %>
+</p>
+
+<%= link_to 'Edit', edit_philanthropy_path(@philanthropy) %> |
+<%= link_to 'Back', philanthropies_path %>

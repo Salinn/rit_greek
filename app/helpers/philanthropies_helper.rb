@@ -1,0 +1,2 @@
+module PhilanthropiesHelper
+end
