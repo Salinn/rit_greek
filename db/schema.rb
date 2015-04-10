@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150410015703) do
+ActiveRecord::Schema.define(version: 20150410021847) do
+
+  create_table "community_services", force: :cascade do |t|
+    t.integer  "event_id_id"
+    t.float    "total_hours"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "community_services", ["event_id_id"], name: "index_community_services_on_event_id_id"
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +36,15 @@ ActiveRecord::Schema.define(version: 20150410015703) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "philanthropies", force: :cascade do |t|
+    t.integer  "event_id_id"
+    t.float    "total_raised"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "philanthropies", ["event_id_id"], name: "index_philanthropies_on_event_id_id"
 
   create_table "user_organizations", force: :cascade do |t|
     t.integer  "user_id_id"
