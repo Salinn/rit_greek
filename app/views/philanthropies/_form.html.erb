@@ -1,0 +1,25 @@
+<%= form_for(@philanthropy) do |f| %>
+  <% if @philanthropy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@philanthropy.errors.count, "error") %> prohibited this philanthropy from being saved:</h2>
+
+      <ul>
+      <% @philanthropy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :event_id_id %><br>
+    <%= f.text_field :event_id_id %>
+  </div>
+  <div class="field">
+    <%= f.label :total_raised %><br>
+    <%= f.text_field :total_raised %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
