@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :organizations
+
   devise_for :users
   StaticPagesController.action_methods.each do |action|
     get "/#{action}", to: "static_pages##{action}", as: "#{action}"
