@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Community Services</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Total hours</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @community_services.each do |community_service| %>
+      <tr>
+        <td><%= community_service.event %></td>
+        <td><%= community_service.total_hours %></td>
+        <td><%= link_to 'Show', community_service %></td>
+        <td><%= link_to 'Edit', edit_community_service_path(community_service) %></td>
+        <td><%= link_to 'Destroy', community_service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Community service', new_community_service_path %>

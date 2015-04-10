@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @community_service.event %>
+</p>
+
+<p>
+  <strong>Total hours:</strong>
+  <%= @community_service.total_hours %>
+</p>
+
+<%= link_to 'Edit', edit_community_service_path(@community_service) %> |
+<%= link_to 'Back', community_services_path %>
