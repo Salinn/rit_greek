@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :user_organizations
+
   resources :events
 
   resources :organizations
