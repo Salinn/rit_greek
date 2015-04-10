@@ -1,5 +1,27 @@
 <h1>New Community Service</h1>
+<div class="col-md-5 col-md-offset-1 top-card-padding">
+  <div class="card">
+    <h1 class="card_header">
+      <%= link_to 'Create Community Service Event', '#' %>
+    </h1>
+    <div class="post_text">
+      <%= render 'form' %>
+    </div>
+    <div class="clear"> </div>
+  </div>
+</div>
 
-<%= render 'form' %>
+<div class="col-md-5 col-md-offset-1 top-card-padding">
+  <div class="card">
+    <h1 class="card_header">
+      <%= link_to 'Event Not Found? Create Here!', '#' %>
+    </h1>
+    <div class="post_text">
+      <% @event = Event.new %>
+      <%= render 'events/form' %>
+    </div>
+    <div class="clear"> </div>
+  </div>
+</div>
 
 <%= link_to 'Back', community_services_path %>

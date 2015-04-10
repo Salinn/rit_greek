@@ -4,4 +4,6 @@ class Event < ActiveRecord::Base
 
   has_many :community_services
   has_many :philanthropies
+
+  EventTypes = ['Community Service','Philanthropy']
 end

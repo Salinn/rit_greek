@@ -15,10 +15,12 @@ class CommunityServicesController < ApplicationController
   # GET /community_services/new
   def new
     @community_service = CommunityService.new
+    @events = Event.all.reverse
   end
 
   # GET /community_services/1/edit
   def edit
+    @events = Event.all.reverse
   end
 
   # POST /community_services
