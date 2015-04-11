@@ -56,3 +56,10 @@ group :development, :test do
   gem 'spring'
 end
 
+#Gems used in production
+group :production do
+  gem 'rails_12factor'
+
+  #The database used in production
+  gem 'pg'
+end
