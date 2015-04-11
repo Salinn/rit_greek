@@ -26,6 +26,8 @@ class PhilanthropiesController < ApplicationController
   def create
     @philanthropy = Philanthropy.new(philanthropy_params)
 
+    create_one_user_events
+
     respond_to do |format|
       if @philanthropy.save
         format.html { redirect_to @philanthropy, notice: 'Philanthropy was successfully created.' }
@@ -62,6 +64,9 @@ class PhilanthropiesController < ApplicationController
   end
 
   private
+    def create_one_user_events
+      UserEvent.create!(user: current_user, event: @philanthropy.event)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_philanthropy
       @philanthropy = Philanthropy.find(params[:id])
