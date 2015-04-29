@@ -10,11 +10,15 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @event = Event.find(params[:id])
   end
 
   # GET /events/new
   def new
     @event = Event.new
+    #https://www.youtube.com/watch?v=a61yKxi3pL0 explains build
+    @event.community_services.build
+    @event.philanthropies.build
   end
 
   # GET /events/1/edit
@@ -69,6 +73,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :type_of_event, :start, :end)
+      params.require(:event).permit(:name, :type_of_event, :start, :end,
+                                    community_services_attributes: [:id, :total_hours])
     end
 end
