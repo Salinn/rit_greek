@@ -25,8 +25,8 @@
         <!--This section gives links based of users rights or permissions -->
         <% if user_signed_in? %>
             <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Community-Service", '#' %></li>
-            <li><%= link_to "Philanthropy", '#' %></li>
+            <li><%= link_to "Community-Service", community_services_path %></li>
+            <li><%= link_to "Philanthropy", philanthropies_path %></li>
         <% else %>
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "About", '#' %></li>

@@ -20,19 +20,12 @@
       <%= select_tag :user_ids, options_for_select(@users.collect {|u| [u.login, u.id]}),:multiple => true, :prompt => 'Select Person', :name=>'events[user_ids][]' %>
     </div>
     <div class="field">
-      <%= f.label :type_of_event %><br>
-      <%= f.collection_select :type_of_event, Event::EventTypes, :to_s, :to_s, :class => "col-md-3" %>
+      <%= f.hidden_field :type_of_event, value: 'Community Service' %>
     </div>
     <%= f.fields_for :community_services do |community_service| %>
         <div class="field">
           <%= community_service.label :total_hours %><br>
           <%= community_service.text_field :total_hours %>
-        </div>
-    <% end %>
-    <%= f.fields_for :philanthropies do |philanthropies| %>
-        <div class="field">
-          <%= philanthropies.label :total_raised %><br>
-          <%= philanthropies.text_field :total_raised %>
         </div>
     <% end %>
     <div class="field">

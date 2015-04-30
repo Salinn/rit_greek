@@ -18,7 +18,8 @@
     </h1>
     <div class="post_text">
       <% @event = Event.new %>
-      <%= render 'events/form' %>
+      <% @event.community_services.build %>
+      <%= render 'events/community_service_event_form' %>
     </div>
     <div class="clear"> </div>
   </div>
