@@ -36,10 +36,10 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.save
         if @event.community_services.any?
-          format.html { redirect_to @event.community_services.last, notice: 'Community service event was successfully created.' }
+          format.html { redirect_to community_services_path, notice: 'Community service event was successfully created.' }
           format.json { render :show, status: :created, location: @event }
         else
-          format.html { redirect_to @event.philanthropies.last, notice: 'Philanthropy event was successfully created.' }
+          format.html { redirect_to philanthropies_path, notice: 'Philanthropy event was successfully created.' }
           format.json { render :show, status: :created, location: @event }
         end
       else
@@ -89,6 +89,6 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:name, :type_of_event, :start, :end, :user_ids,
                                   community_services_attributes: [:id, :total_hours],
-                                  philanthropies:[:id, :total_raised])
+                                  philanthropies_attributes:[:id, :total_raised])
   end
 end

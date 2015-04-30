@@ -4,7 +4,9 @@ module PhilanthropiesHelper
     organization.users.each do |user|
       test =  user.events.where(type_of_event: 'Philanthropy')
       test.each do |event|
-        total += event.community_services.first.total_raised
+        if event.philanthropies.any?
+          total += event.philanthropies.first.total_raised
+        end
       end
     end
     total

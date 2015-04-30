@@ -15,6 +15,8 @@ class PhilanthropiesController < ApplicationController
   # GET /philanthropies/new
   def new
     @philanthropy = Philanthropy.new
+    @users = User.all #TODO Needs to sort of current users organization if user has cancan, otherwise only them
+    @events = Event.all.reverse
   end
 
   # GET /philanthropies/1/edit
