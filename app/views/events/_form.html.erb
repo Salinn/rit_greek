@@ -16,6 +16,10 @@
       <%= f.text_field :name %>
     </div>
     <div class="field">
+      <%= f.label :user_ids %><br>
+      <%= select_tag :user_ids, options_for_select(@users.collect {|u| [u.login, u.id]}),:multiple => true, :prompt => 'Select Person', :name=>'events[user_ids][]' %>
+    </div>
+    <div class="field">
       <%= f.label :type_of_event %><br>
       <%= f.collection_select :type_of_event, Event::EventTypes, :to_s, :to_s, :class => "col-md-3" %>
     </div>

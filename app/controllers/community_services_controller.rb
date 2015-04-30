@@ -15,6 +15,7 @@ class CommunityServicesController < ApplicationController
   # GET /community_services/new
   def new
     @community_service = CommunityService.new
+    @users = User.all #TODO Needs to sort of current users organization if user has cancan, otherwise only them
     @events = Event.all.reverse
   end
 
@@ -27,6 +28,8 @@ class CommunityServicesController < ApplicationController
   # POST /community_services.json
   def create
     @community_service = CommunityService.new(community_service_params)
+
+    create_one_user_events
 
     respond_to do |format|
       if @community_service.save
@@ -64,6 +67,9 @@ class CommunityServicesController < ApplicationController
   end
 
   private
+    def create_one_user_events
+      UserEvent.create!(user: current_user, event: @community_service.event)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_community_service
       @community_service = CommunityService.find(params[:id])

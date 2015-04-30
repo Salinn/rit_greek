@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -49,6 +48,9 @@ group :development, :test do
   gem 'better_errors', '1.0.1'
   gem 'binding_of_caller', '0.7.2'
 
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -56,3 +58,10 @@ group :development, :test do
   gem 'spring'
 end
 
+#Gems used in production
+group :production do
+  gem 'rails_12factor'
+
+  #The database used in production
+  gem 'pg'
+end

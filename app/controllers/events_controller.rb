@@ -19,6 +19,7 @@ class EventsController < ApplicationController
     #https://www.youtube.com/watch?v=a61yKxi3pL0 explains build
     @event.community_services.build
     @event.philanthropies.build
+    @users = User.all #TODO Needs to sort of current users organization if user has cancan, otherwise only them
   end
 
   # GET /events/1/edit
@@ -29,6 +30,8 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+
+    create_many_user_events
 
     respond_to do |format|
       if @event.save
@@ -66,6 +69,12 @@ class EventsController < ApplicationController
   end
 
   private
+    def create_many_user_events
+      user_ids = params[:events][:user_ids] rescue []
+      user_ids.each do | user_id |
+        UserEvent.create!(user_id: user_id, event: @event)
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
