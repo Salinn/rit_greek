@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :community_services
   resources :philanthropies
 
-  resources :organizations
+  resources :organizations do
+    collection { post :import }
+  end
 
   devise_for :users
   StaticPagesController.action_methods.each do |action|

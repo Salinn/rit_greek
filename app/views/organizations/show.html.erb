@@ -4,6 +4,20 @@
   <strong>Name:</strong>
   <%= @organization.name %>
 </p>
+<p>
+  <strong>Members:</strong>
+  <% @organization.users.each do |user| %>
+  <%= user.login %>
+  <% end  %>
+</p>
+<div>
+<h3>Import a CSV File</h3>
+<%= form_tag import_organizations_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= hidden_field_tag :organization_id , @organization.id %>
+    <%= submit_tag "Import CSV" %>
+<% end %>
+</div>
 
 <%= link_to 'Edit', edit_organization_path(@organization) %> |
 <%= link_to 'Back', organizations_path %>

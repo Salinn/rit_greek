@@ -1,77 +1,41 @@
 <div class="row">
   <div class="col-md-5 col-md-offset-1 top-card-padding">
-  <div class="card">
-    <h1 class="card_header">
-      <%= link_to 'Philanthropy', '#' %>
-    </h1>
-    <div class="post_text">
-      <table>
-        <tr>
-          <td>Phi Kappa Tau</td>
-          <td style="padding-right: 20px;"></td>
-          <td>500 Hours</td>
-        </tr>
-        <tr>
-          <td>Phi Kappa Tau</td>
-          <td style="padding-right: 20px;"></td>
-          <td>500 Hours</td>
-        </tr>
-        <tr>
-          <td>Phi Kappa Tau</td>
-          <td style="padding-right: 20px;"></td>
-          <td>500 Hours</td>
-        </tr>
-        <tr>
-          <td>Phi Kappa Tau</td>
-          <td style="padding-right: 20px;"></td>
-          <td>500 Hours</td>
-        </tr>
-        <tr>
-          <td>Phi Kappa Tau</td>
-          <td style="padding-right: 20px;"></td>
-          <td>500 Hours</td>
-        </tr>
-      </table>
+    <div class="card">
+      <h1 class="card_header">
+        <%= link_to 'Community Service', '#' %>
+      </h1>
+      <div class="post_text">
+        <table>
+          <% @organizations.each do |organization| %>
+              <tr>
+                <td><%= organization.name %></td>
+                <td style="padding-right: 20px;"></td>
+                <td><%= organization_total_hours(organization) %> Hours</td>
+              </tr>
+          <% end %>
+        </table>
+      </div>
+      <div class="clear"> </div>
     </div>
-    <div class="clear"> </div>
   </div>
-</div>
 
-<div class="col-md-5 col-md-offset-1 top-card-padding">
-  <div class="card">
-    <h1 class="card_header">
-      <%= link_to 'Community Service', '#' %>
-    </h1>
-    <div class="post_text">
-      <table>
-        <tr>
-          <td>Phi Kappa Tau</td>
-          <td style="padding-right: 20px;"></td>
-          <td>500 Dollars</td>
-        </tr>
-        <tr>
-          <td>Phi Kappa Tau</td>
-          <td style="padding-right: 20px;"></td>
-          <td>500 Dollars</td>
-        </tr>
-        <tr>
-          <td>Phi Kappa Tau</td>
-          <td style="padding-right: 20px;"></td>
-          <td>500 Dollars</td>
-        </tr>
-        <tr>
-          <td>Phi Kappa Tau</td>
-          <td style="padding-right: 20px;"></td>
-          <td>500 Dollars</td>
-        </tr>
-        <tr>
-          <td>Phi Kappa Tau</td>
-          <td style="padding-right: 20px;"></td>
-          <td>500 Dollars</td>
-        </tr>
-      </table>
+  <div class="col-md-5 col-md-offset-1 top-card-padding">
+    <div class="card">
+      <h1 class="card_header">
+        <%= link_to 'Philanthropy', '#' %>
+      </h1>
+      <div class="post_text">
+        <table>
+          <% @organizations.each do |organization| %>
+              <tr>
+                <td><%= organization.name %></td>
+                <td style="padding-right: 20px;"></td>
+                <td><%= organization_total_raised(organization) %> Dollars</td>
+              </tr>
+          <% end %>
+        </table>
+      </div>
+      <div class="clear"> </div>
     </div>
-    <div class="clear"> </div>
   </div>
-</div>
 </div>

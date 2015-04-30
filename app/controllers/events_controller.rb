@@ -35,8 +35,13 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
+        if @event.community_services.any?
+          format.html { redirect_to @event.community_services.last, notice: 'Community service event was successfully created.' }
+          format.json { render :show, status: :created, location: @event }
+        else
+          format.html { redirect_to @event.philanthropies.last, notice: 'Philanthropy event was successfully created.' }
+          format.json { render :show, status: :created, location: @event }
+        end
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
@@ -69,21 +74,21 @@ class EventsController < ApplicationController
   end
 
   private
-    def create_many_user_events
-      user_ids = params[:events][:user_ids] rescue []
-      user_ids.each do | user_id |
-        UserEvent.create!(user_id: user_id, event: @event)
-      end
+  def create_many_user_events
+    user_ids = params[:events][:user_ids] rescue []
+    user_ids.each do | user_id |
+      UserEvent.create!(user_id: user_id, event: @event)
     end
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
+  end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
-      params.require(:event).permit(:name, :type_of_event, :start, :end,
-                                    community_services_attributes: [:id, :total_hours],
-                                    philanthropies:[:id, :total_raised])
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def event_params
+    params.require(:event).permit(:name, :type_of_event, :start, :end, :user_ids,
+                                  community_services_attributes: [:id, :total_hours],
+                                  philanthropies:[:id, :total_raised])
+  end
 end
