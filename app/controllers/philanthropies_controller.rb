@@ -67,6 +67,14 @@ class PhilanthropiesController < ApplicationController
     end
   end
 
+  def organizations_events
+    @organization = Organization.find(params[:organization_id])
+    if @organization.nil?
+      format.html { redirect_to root_path, notice: 'That organization could not be found' }
+      format.json { render json: @philanthropy.errors, status: :unprocessable_entity }
+    end
+  end
+
   private
     def create_one_user_events
       UserEvent.create!(user: current_user, event: @philanthropy.event)

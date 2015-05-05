@@ -14,4 +14,10 @@ class Event < ActiveRecord::Base
     community_services.each { |event| total += event.total_hours }
     total
   end
+
+  def philanthropies_total
+    total = 0
+    philanthropies.each { |event| total += event.total_raised }
+    total
+  end
 end

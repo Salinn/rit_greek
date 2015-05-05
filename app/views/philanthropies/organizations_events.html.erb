@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="container top-card-padding">
+    <div class="card">
+      <h1>
+        <%= @organization.name %>
+      </h1>
+      <% events = get_events(@organization) %>
+      <% events.each do | event | %>
+          <div style="float: left">
+            <h3><%= event.name %>: </h3>
+          </div>
+          <div style="float: left; padding-left: 10px">
+            <h3><%= event.philanthropies_total %> dollars raised</h3>
+          </div>
+          <div class="container"></div>
+      <% end %>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>

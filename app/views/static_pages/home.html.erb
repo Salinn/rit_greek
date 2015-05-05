@@ -3,7 +3,7 @@
     <div class="col-md-5 top-card-padding">
       <div class="card">
         <h1 class="card_header">
-          <%= link_to 'Community Service', '#' %>
+          Community Service
         </h1>
         <div class="post_text">
           <table>
@@ -23,13 +23,13 @@
     <div class="col-md-5 col-md-offset-2 top-card-padding">
       <div class="card">
         <h1 class="card_header">
-          <%= link_to 'Philanthropy', '#' %>
+          Philanthropy
         </h1>
         <div class="post_text">
           <table>
             <% @organizations.each do |organization| %>
                 <tr>
-                  <td><%= organization.name %></td>
+                  <td><%= link_to organization.name, "philanthropy_events/#{organization.id}" %></td>
                   <td style="padding-right: 20px;"></td>
                   <td><%= organization_total_raised(organization) %> Dollars</td>
                 </tr>

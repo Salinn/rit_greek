@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   get 'community_service_events/:organization_id' => 'community_services#organizations_events'
-  get 'philanthropy_events/:organization_id' => 'philanthropies#organization_events'
+  get 'philanthropy_events/:organization_id' => 'philanthropies#organizations_events'
 
   devise_for :users
   StaticPagesController.action_methods.each do |action|

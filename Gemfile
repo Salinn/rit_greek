@@ -28,7 +28,7 @@ gem 'devise_ldap_authenticatable'
 gem 'cancancan', '~> 1.10'
 
 #Sets up bootstrap for rails
-gem 'bootstrap-sass', '~> 3.3.4'
+gem 'bootstrap-sass'
 gem 'sass-rails', github: 'rails/sass-rails', branch: '4-0-stable'
 
 #JQUERY Drop Down Menuschema
