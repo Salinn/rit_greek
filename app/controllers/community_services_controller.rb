@@ -4,7 +4,7 @@ class CommunityServicesController < ApplicationController
   # GET /community_services
   # GET /community_services.json
   def index
-    @community_services = CommunityService.all
+    @community_services = CommunityService.all.reverse
   end
 
   # GET /community_services/1
@@ -15,7 +15,9 @@ class CommunityServicesController < ApplicationController
   # GET /community_services/new
   def new
     @community_service = CommunityService.new
-    @users = User.all #TODO Needs to sort of current users organization if user has cancan, otherwise only them
+    user_organization = UserOrganization.find_by(user_id: current_user)
+    organization = Organization.find(user_organization.organization_id)
+    @users = organization.users #TODO Needs to get users from current users organization with less calls
     @events = Event.all.reverse
   end
 
