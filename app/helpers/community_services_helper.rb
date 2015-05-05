@@ -11,4 +11,16 @@ module CommunityServicesHelper
     end
     total
   end
+
+  def get_events(organization)
+    events = []
+    organization.users.each do | user |
+      user.events.each do | event |
+        if event.type_of_event == 'Community Service' && !events.include?(event)
+            events.push(event)
+        end
+      end
+    end
+    events
+  end
 end

@@ -9,7 +9,7 @@
           <table>
             <% @organizations.each do |organization| %>
                 <tr>
-                  <td><%= organization.name %></td>
+                  <td><%= link_to organization.name, "community_service_events/#{organization.id}" %></td>
                   <td style="padding-right: 20px;"></td>
                   <td><%= organization_total_hours(organization) %> Hours</td>
                 </tr>

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     collection { post :import }
   end
 
+  get 'community_service_events/:organization_id' => 'community_services#organizations_events'
+  get 'philanthropy_events/:organization_id' => 'philanthropies#organization_events'
+
   devise_for :users
   StaticPagesController.action_methods.each do |action|
     get "/#{action}", to: "static_pages##{action}", as: "#{action}"
