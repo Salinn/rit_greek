@@ -14,7 +14,7 @@
             <!--This fetches the greek header image from the stored files-->
             <%= image_tag "ritgreek-header.jpg", style: 'width: auto; height: 50px;' %>
           </a>
-          <h1 class="" style="display: inline; color: #ffffff; ">
+          <h1 style="display: inline; color: #ffffff; vertical-align: middle;">
             RIT Greeks Life!
           </h1>
         </div>
@@ -24,19 +24,19 @@
       <ul class="nav navbar-nav navbar-right">
         <!--This section gives links based of users rights or permissions -->
         <% if user_signed_in? %>
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Community-Service", community_services_path %></li>
-            <li><%= link_to "Philanthropy", philanthropies_path %></li>
+            <li><%= link_to "Home", root_path, style: 'color: #ffffff;' %></li>
+            <li><%= link_to "Community-Service", community_services_path, style: 'color: #ffffff;' %></li>
+            <li><%= link_to "Philanthropy", philanthropies_path, style: 'color: #ffffff;' %></li>
         <% else %>
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "About", '#' %></li>
-            <li><%= link_to "FAQ", '#'  %></li>
-            <li><%= link_to "Contact-Us", '#'  %></li>
+            <li><%= link_to "Home", root_path, style: 'color: #ffffff;' %></li>
+            <li><%= link_to "About", '#', style: 'color: #ffffff;' %></li>
+            <li><%= link_to "FAQ", '#', style: 'color: #ffffff;'  %></li>
+            <li><%= link_to "Contact-Us", '#', style: 'color: #ffffff;'  %></li>
         <% end %>
         <% if user_signed_in? %>
-            <li><%= link_to "Sign-out", destroy_user_session_path, :method => :delete, class: "nav-item" %></li>
+            <li><%= link_to "Sign-out", destroy_user_session_path, :method => :delete, class: "nav-item", style: 'color: #ffffff;' %></li>
         <% else %>
-            <li><%= link_to "Sign-in", new_user_session_path %>
+            <li><%= link_to "Sign-in", new_user_session_path, style: 'color: #ffffff;' %>
         <% end %>
       </ul>
     </div>

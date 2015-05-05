@@ -23,6 +23,7 @@ class PhilanthropiesController < ApplicationController
 
   # GET /philanthropies/1/edit
   def edit
+    @events = Event.all.reverse
   end
 
   # POST /philanthropies

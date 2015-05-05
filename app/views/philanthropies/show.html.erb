@@ -1,14 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3 top-card-padding">
+      <div class="card">
+        <p>
+          <strong>Event:</strong>
+          <%= @philanthropy.event.name %>
+        </p>
 
-<p>
-  <strong>Event:</strong>
-  <%= @philanthropy.event %>
-</p>
+        <p>
+          <strong>Total raised:</strong>
+          <%= @philanthropy.total_raised %> dollars
+        </p>
 
-<p>
-  <strong>Total raised:</strong>
-  <%= @philanthropy.total_raised %>
-</p>
-
-<%= link_to 'Edit', edit_philanthropy_path(@philanthropy) %> |
-<%= link_to 'Back', philanthropies_path %>
+        <%= link_to 'Edit', edit_philanthropy_path(@philanthropy) %> |
+        <%= link_to 'Back', philanthropies_path %>
+      </div>
+    </div>
+  </div>
+</div>

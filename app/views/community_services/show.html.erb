@@ -1,14 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3 top-card-padding">
+      <div class="card">
+        <p>
+          <strong>Event:</strong>
+          <%= @community_service.event.name %>
+        </p>
 
-<p>
-  <strong>Event:</strong>
-  <%= @community_service.event.id %>
-</p>
+        <p>
+          <strong>Total hours:</strong>
+          <%= @community_service.total_hours %> volunteered
+        </p>
 
-<p>
-  <strong>Total hours:</strong>
-  <%= @community_service.total_hours %>
-</p>
-
-<%= link_to 'Edit', edit_community_service_path(@community_service) %> |
-<%= link_to 'Back', community_services_path %>
+        <%= link_to 'Edit', edit_community_service_path(@community_service) %> |
+        <%= link_to 'Back', community_services_path %>
+      </div>
+    </div>
+  </div>
+</div>

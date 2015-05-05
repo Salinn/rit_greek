@@ -1,10 +1,11 @@
 $White: #FFFFFF;
+$LightGrey: #dadada;
 $Black: #000000;
 
 .card {
   padding:1.5rem;
   box-shadow:0 10px 14px rgba(10,10,10,.6);
-  background: $White;
+  background: $LightGrey;
   border-radius:3px;
   animation:fly-in-from-left .5s 1s ease both;
   transform-origin:top left;
