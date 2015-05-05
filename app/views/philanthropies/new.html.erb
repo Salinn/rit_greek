@@ -1,25 +1,29 @@
-<div class="col-md-5 col-md-offset-1 top-card-padding">
-  <div class="card">
-    <h1 class="card_header">
-      <%= link_to 'Create Community Service Event', '#' %>
-    </h1>
-    <div class="post_text">
-      <%= render 'form' %>
+<div class="row">
+  <div class="container">
+    <div class="col-md-6 top-card-padding">
+      <div class="card">
+        <h4>
+          Create Philanthropy Event
+        </h4>
+        <div class="post_text">
+          <%= render 'form' %>
+        </div>
+        <div class="clear"> </div>
+      </div>
     </div>
-    <div class="clear"> </div>
-  </div>
-</div>
 
-<div class="col-md-5 col-md-offset-1 top-card-padding">
-  <div class="card">
-    <h1 class="card_header">
-      <%= link_to 'Event Not Found? Create Here!', '#' %>
-    </h1>
-    <div class="post_text">
-      <% @event = Event.new %>
-      <% @event.philanthropies.build %>
-      <%= render 'events/philanthropy_event_form' %>
+    <div class="col-md-6 top-card-padding">
+      <div class="card">
+        <h4>
+          Event Not Found? Create Here!
+        </h4>
+        <div class="post_text">
+          <% @event = Event.new %>
+          <% @event.philanthropies.build %>
+          <%= render 'events/philanthropy_event_form' %>
+        </div>
+        <div class="clear"> </div>
+      </div>
     </div>
-    <div class="clear"> </div>
   </div>
 </div>
