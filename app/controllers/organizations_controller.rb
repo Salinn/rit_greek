@@ -62,9 +62,8 @@ class OrganizationsController < ApplicationController
   end
 
   def import
-    @organization = Organization.find(params[:organization_id])
-    Organization.import(params[:file], @organization)
-    redirect_to @organization, notice: "Users imported."
+    Organization.import(params[:file])
+    redirect_to :back, notice: "Users imported."
   end
 
   private
